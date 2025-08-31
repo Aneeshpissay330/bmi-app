@@ -1,6 +1,6 @@
-import { useActionState, useState } from "react";
-import { calculateBMI, type BMIResult } from "../../utils/bmi";
 import { Button, TextInput } from "@Aneeshpissay330/components-ui";
+import { useActionState } from "react";
+import { calculateBMI } from "../../utils/bmi";
 
 type State = {
     height: string;
