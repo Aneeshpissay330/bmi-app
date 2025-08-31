@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-light: #FFFFFF;
+  /* rgb(255,255,255) */
+  --color-dark: #1F2937;
+  /* rgb(31,41,55) */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer base {
+
+  /* Light */
+  body {
+    @apply bg-[var(--color-light)] text-[var(--color-dark)];
+  }
+
+  /* Dark */
+  .dark body {
+    @apply bg-[var(--color-dark)] text-[var(--color-light)];
+  }
+
+  /* Header */
+  header {
+    @apply backdrop-blur border-b border-black/10;
+  }
+
+  header {
+    background-color: color-mix(in srgb, var(--color-light) 70%, transparent);
+  }
+
+  .dark header {
+    background-color: color-mix(in srgb, var(--color-dark) 70%, transparent);
+  }
+
+  .dark header {
+    @apply border-white/10;
+  }
+
+  /* Nav links */
+  nav a {
+    @apply pb-1 transition-colors;
+    color: color-mix(in srgb, var(--color-dark) 80%, transparent);
+  }
+
+  nav a:hover {
+    color: var(--color-dark);
+  }
+
+  .dark nav a {
+    color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  }
+
+  .dark nav a:hover {
+    color: var(--color-light);
+  }
+
+  /* Active nav link */
+  nav a.active {
+    @apply font-medium border-b-2;
+    border-color: var(--color-dark);
+  }
+
+  .dark nav a.active {
+    border-color: var(--color-light);
+  }
+
+  p {
+    @apply pb-1 transition-colors;
+    color: color-mix(in srgb, var(--color-dark) 80%, transparent);
+  }
+
+  .dark p {
+    color: color-mix(in srgb, var(--color-light) 80%, transparent);
+  }
+
+  /* Footer */
+  footer {
+    @apply backdrop-blur border-b border-black/10;
+  }
+
+  footer {
+    background-color: color-mix(in srgb, var(--color-light) 70%, transparent);
+  }
+
+  .dark footer {
+    background-color: color-mix(in srgb, var(--color-dark) 70%, transparent);
+  }
+
+  .dark footer {
+    @apply border-white/10;
+  }
+}
